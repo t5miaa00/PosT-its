@@ -1,0 +1,25 @@
+body
+{
+   padding-top: 60px;
+   background: #eee;
+}
+.form-signin
+{
+   max-width: 330px;
+   margin: auto;
+}
+.form-control
+{
+   padding: 10px;
+   height: auto;
+   font-size: 18px;
+}
+#inputUsername
+{
+   border-radius: 5px 5px 0 0;
+   margin-bottom: -1px;
+}
+#inputPassword
+{
+   border-radius: 0 0 5px 5px;
+}
