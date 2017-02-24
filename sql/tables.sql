@@ -20,6 +20,7 @@ CREATE TABLE notes
    noteID INTEGER AUTO_INCREMENT,
    userID INTEGER,
    message VARCHAR(255),
+   colour CHAR(6), -- Colour in hex => 00ffaa
    position_x FLOAT(6,2), -- 6 digits, 2 decimals => 1234,56
    position_y FLOAT(6,2), -- Theoretical maximum value: 9999,99
    post_date DATETIME,

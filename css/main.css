@@ -2,3 +2,21 @@ body
 {
    padding-top: 50px;
 }
+.corkwall
+{
+   margin: 8px;
+   border: 4px solid #aaa;
+   border-radius: 10px;
+   min-height: 1080px;
+   min-width: 1920px;
+   position: relative;
+   background: #cca;
+}
+.post-note
+{
+   position: absolute;
+   background: salmon;
+   width: 160px;
+   min-height: 160px;
+   padding: 8px;
+}

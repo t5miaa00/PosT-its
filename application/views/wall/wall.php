@@ -1,3 +1,7 @@
 <div class="container-flow">
-   The wall will be here!
+   <div class="corkwall">
+      <div class="post-note" style="top: 120px; left: 233px;">
+         <p>Ferst post pitses!</p>
+      </div>
+   </div>
 </div>
