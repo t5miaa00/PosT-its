@@ -2,8 +2,9 @@ body
 {
    padding-top: 50px;
    background: url('../img/background.jpg') no-repeat fixed center top;
+   width: 100%;
 }
-.jumbotron, footer
+.jumbotron, footer, .well
 {
    background: url('../img/background-blur.jpg') no-repeat fixed center top;
 }
@@ -11,6 +12,18 @@ footer
 {
    padding-top: 16px;
    padding-bottom: 16px;
+   width: 100%;
+}
+.navbar.navbar-inverse
+{
+   opacity: 0.9;
+   background: #111;
+}
+button.navbar-toggle
+{
+   border-radius: 5px;
+   border: 0px solid transparent;
+   background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 .modal-content
 {
@@ -47,14 +60,19 @@ footer
 {
    border-top: 1px dashed #555;
 }
+.corkwall-container
+{
+   overflow-x: scroll;
+}
 .corkwall
 {
    margin: 8px;
+   margin-left: -2px;
    border: 4px solid #888;
    box-shadow: 0 0 10px 0 black inset;
    border-radius: 10px;
-   min-height: 1080px;
-   min-width: 1920px;
+   height: 720px;
+   width: 1420px;
    position: relative;
    background: #cca;
    background-image: url(../img/corkwall.jpg);
@@ -67,6 +85,10 @@ footer
    min-height: 160px;
    padding: 8px;
    box-shadow: 0 14px 32px -16px rgba(0, 0, 0, 0.5);
+}
+.post-note p
+{
+   margin-bottom: 35px;
 }
 .post-note-footer
 {
@@ -84,7 +106,17 @@ footer
    margin-top: 7px;
    margin-bottom: 7px;
 }
-.post-note-footer p::before
+.post-note-footer p::before,
+.modal-footer p::before
 {
    content: "~ "
+}
+body > .container,
+body > .container-flow
+{
+   margin-top: 10px;
+}
+body > .container-flow
+{
+   margin-left: 10px;
 }

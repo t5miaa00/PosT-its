@@ -53,9 +53,8 @@
                      <?php
                      if(isset($userID))
                      {
-                        $user_url = array('profile', $userID);
-                        echo '<a href="'. site_url($user_url) .'">'
-                            .'<span class="glyphicon glyphicon-log-in"></span> '. $username .' <span title="You have '. $notes_left .' notes left to put to the wall!\" class="badge">'. $notes_left .'</span>'
+                        echo '<a href="'. site_url('profile') .'">'
+                            .'<span class="glyphicon glyphicon-log-in"></span> '. $username .' <span title="You have '. $notes_left .' notes left to put to the wall!" class="badge">'. $notes_left .'</span>'
                             .'</a>'
                             .'</li><li>'
                             .'<a href="'. site_url('profile/logout') .'">Log out'

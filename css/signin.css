@@ -1,12 +1,15 @@
 body
 {
    padding-top: 60px;
-   background: #eee;
+   background: url(../img/signin-bg.jpg) no-repeat fixed center top;
 }
 .form-signin
 {
-   max-width: 330px;
+   max-width: 340px;
    margin: auto;
+   padding: 10px;
+   background: url(../img/signin-bg-blur.jpg) no-repeat fixed center top;
+   border-radius: 10px;
 }
 .form-control
 {
