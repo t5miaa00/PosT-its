@@ -56,7 +56,15 @@
             }
             if (isset($login_fail) && $login_fail)
             {
-               echo '<br><div class="alert alert-danger role alert"><b>OOPS! </b>Check your username or password.</div><br>';
+               echo '<br>'
+                   .'<div class="alert alert-danger role="alert"><b>OOPS! </b>Check your username or password.</div>'
+                   .'<br>';
+            }
+            if (isset($logged_out) && $logged_out)
+            {
+               echo '<br>'
+                   .'<div class="alert alert-success role="alert">SUCCESS! Logged out succesfully!</div>'
+                   .'<br>';
             }
             ?>
             <p>Don't have an account? <a href="<?php echo site_url('profile/register');?>">Register here!</a></p>

@@ -54,8 +54,16 @@
                      if(isset($userID))
                      {
                         $user_url = array('profile', $userID);
-                        echo "<a href=\"". site_url($user_url) ."\"><span class=\"glyphicon glyphicon-log-in\"></span> ". $username
-                            ." <span title=\"You have ". $notes_left ." notes left to put to the wall!\" class=\"badge\">". $notes_left ."</span></a>";
+                        echo '<a href="'. site_url($user_url) .'">'
+                            .'<span class="glyphicon glyphicon-log-in"></span> '. $username .' <span title="You have '. $notes_left .' notes left to put to the wall!\" class="badge">'. $notes_left .'</span>'
+                            .'</a>'
+                            .'</li><li>'
+                            .'<a href="'. site_url('profile/logout') .'">Log out'
+                            .'</a></li>';
+                     }
+                     else
+                     {
+                        echo '<a href="'. site_url('profile/signin') .'"><span class="glyphicon glyphicon-log-in"></span> Log in</a>';
                      }
                      ?>
                   </li>

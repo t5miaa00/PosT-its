@@ -23,7 +23,7 @@
    <body>
 
       <div class="container">
-         <form class="form-signin" action="<?php echo site_url('profile/registerUser')?>"
+         <form class="form-signin" action="<?php echo site_url('profile/register')?>"
                method="post">
             <h4><a href="<?php echo site_url('main');?>">
                <span class="glyphicon glyphicon-menu-left"></span> Home
@@ -39,7 +39,7 @@
                    name="username" placeholder="Username" maxlength="25" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control"
-                   name="password" placeholder="Password" maxlength="32" required>
+                   name="password" placeholder="Password" minlength="16" maxlength="32" required>
 
             <br>
 
