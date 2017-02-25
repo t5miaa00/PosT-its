@@ -64,7 +64,7 @@
                      else
                      {
                         echo '<a href="'. site_url('profile/signin') .'">'
-                            .'<span class="glyphicon glyphicon-log-in"></span> Log in'
+                            .'<span class="glyphicon glyphicon-log-in"></span> Sign in'
                             .'</a>';
                      }
                      ?>
