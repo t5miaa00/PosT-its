@@ -17,9 +17,9 @@
    </div>
 </div>
 <div class="container alert alert-info">
-   <p>DEBUG! <br> session ID: <?php echo session_id(); ?></p>
-   <p>user ID: <?php echo $userID; ?></p>
-   <p>username: <?php echo $username; ?></p>
-   <p>notes left: <?php echo $notes_left; ?></p>
-   <p>message draft: <?php echo $message_draft; ?></p>
+   <p>Debugging information: <hr> session ID: <?php echo session_id(); ?></p>
+   <p>user ID: <?php echo (isset($userID)) ? $userID : "n/a"; ?></p>
+   <p>username: <?php echo (isset($username)) ? $username : "n/a"; ?></p>
+   <p>notes left: <?php echo (isset($notes_left)) ? $notes_left : "n/a"; ?></p>
+   <p>message draft: <br> <?php echo (isset($message_draft)) ? $message_draft : "n/a"; ?></p>
 </div>

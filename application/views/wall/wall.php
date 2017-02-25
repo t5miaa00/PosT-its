@@ -45,6 +45,41 @@
             </div>
             <!-- MODAL END -->
          </div>
+         <!-- POST END -->
+         <?php
+         foreach ($user_posts as $note)
+         {
+            echo '
+<div class="post-grouping">
+   <div class="post-note" style="top: '. $note->position_y .'px; left: '. $note->position_x .'px; background:#'. $note->colour .'"
+        data-toggle="modal" data-target="#postID-'. $note->noteID .'">
+      '. $note->message .'
+      <div class="post-note-footer">
+         <p>Poster</p>
+      </div>
+   </div>
+
+   <div class="modal fade" id="postID-'. $note->noteID .'" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content" style="background:#'. $note->colour .'">
+            <div class="modal-header">
+               <a href="#" class="delete-post"><span class="glyphicon glyphicon-trash"></span>Delete post?</a>
+               <button type="button" class="close" data-dismiss="modal">
+                  &times;
+               </button>
+            </div>
+            <div class="modal-body">
+            '. $note->message .'
+            </div>
+            <div class="modal-footer">
+               <p>Poster</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>';
+         }
+         ?>
 
       </div>
    </div>

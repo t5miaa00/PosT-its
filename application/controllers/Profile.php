@@ -3,9 +3,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Profile extends CI_Controller
 {
+   public function __construct()
+   {
+      parent::__construct();
+      $this->load->model('Profile_model');
+   }
+
+   public function index()
+   {
+      if (! $this->Profile_model->checkLogin())
+      {
+         redirect('profile/signin');
+         return false;
+      }
+      $data['page'] = 'profile/main';
+
+      $session_data = $this->session->userdata('logged_in');
+      $data['username'] = $session_data['username'];
+      $data['notes_left'] = $session_data['notes_left'];
+      #debug data...
+      $data['userID'] = $session_data['userID'];
+      $data['message_draft'] = $session_data['message_draft'];
+      $data['user_posts'] = $this->Profile_model->getPosts($data['userID']);
+
+      $this->load->view('menu/content', $data);
+   }
    public function signin()
    {
-      $this->load->model('Profile_model');
+      if ($this->Profile_model->checkLogin())
+      {
+         redirect('profile');
+      }
       $btn = $this->input->post('signInBtn');
 
 
@@ -46,7 +74,10 @@ class Profile extends CI_Controller
    }
    public function register()
    {
-      $this->load->model('Profile_model');
+      if ($this->Profile_model->checkLogin())
+      {
+         redirect('profile');
+      }
       $btn = $this->input->post('registerBtn');
       if (isset($btn))
       {

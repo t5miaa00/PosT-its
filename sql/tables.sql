@@ -30,3 +30,11 @@ CREATE TABLE notes
       ON UPDATE RESTRICT
 )
 ENGINE = InnoDB;
+
+-- Adding some testing posts to the table.
+INSERT INTO notes (userID, message, colour, position_x, position_y, post_date)
+VALUES ("1", "This is a test message.", "5a024f", "111.11", "442.53", NOW());
+INSERT INTO notes (userID, message, colour, position_x, position_y, post_date)
+VALUES ("1", "This is also a testing message", "392da1", "1002.20", "2.53", NOW());
+INSERT INTO notes (userID, message, colour, position_x, position_y, post_date)
+VALUES ("1", "This message will be designated as a testing one.", "aabbcc", "1.3", "603.53", NOW());
