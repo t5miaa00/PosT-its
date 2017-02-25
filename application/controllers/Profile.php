@@ -47,7 +47,6 @@ class Profile extends CI_Controller
    public function register()
    {
       $this->load->model('Profile_model');
-      $this->load->view('profile/register');
       $btn = $this->input->post('registerBtn');
       if (isset($btn))
       {
@@ -58,8 +57,12 @@ class Profile extends CI_Controller
             "message_draft"=>""
          );
          $data['trying'] = $this->Profile_model->addUser($user_data);
+         $this->load->view('profile/signin', $data);
       }
-      $this->load->view('profile/signin', $data);
+      else
+      {
+         $this->load->view('profile/register');
+      }
    }
    public function logout()
    {

@@ -63,7 +63,9 @@
                      }
                      else
                      {
-                        echo '<a href="'. site_url('profile/signin') .'"><span class="glyphicon glyphicon-log-in"></span> Log in</a>';
+                        echo '<a href="'. site_url('profile/signin') .'">'
+                            .'<span class="glyphicon glyphicon-log-in"></span> Log in'
+                            .'</a>';
                      }
                      ?>
                   </li>

@@ -39,7 +39,8 @@
                    name="username" placeholder="Username" maxlength="25" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control"
-                   name="password" placeholder="Password" minlength="16" maxlength="32" required>
+                   name="password" placeholder="Password" pattern=".{10,32}"
+                   title="Password must be between 10 and 32 characters." required>
 
             <br>
 
