@@ -23,7 +23,7 @@
    <body>
 
       <div class="container">
-         <form class="form-signin"
+         <form class="form-signin" action="<?php echo site_url('profile/signin')?>"
                method="post">
             <h4><a href="<?php echo site_url('main');?>">
                <span class="glyphicon glyphicon-menu-left"></span> Home
@@ -40,6 +40,25 @@
             <br>
 
             <input class="btn btn-lg btn-primary btn-block" name="signInBtn" type="submit" value="Sign in">
+            <?php
+            if (isset($trying))
+            {
+               echo '<br>';
+               if ($trying)
+               {
+                  echo '<div class="alert alert-success" role="alert"><b>SUCCESS! </b>User added succesfully!</div>';
+               }
+               else
+               {
+                  echo '<div class="alert alert-danger" role="alert"><b>OOPS! </b>Something went wrong while adding the user! :(</div>';
+               }
+               echo '<br>';
+            }
+            if (isset($login_fail) && $login_fail)
+            {
+               echo '<br><div class="alert alert-danger role alert"><b>OOPS! </b>Check your username or password.</div><br>';
+            }
+            ?>
             <p>Don't have an account? <a href="<?php echo site_url('profile/register');?>">Register here!</a></p>
          </form>
       </div>

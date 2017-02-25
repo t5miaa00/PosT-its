@@ -48,9 +48,17 @@
                   </a></li>
                </ul>
                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="<?php echo site_url('profile/signin')?>">
-                     <span class="glyphicon glyphicon-log-in"></span> Log in
-                  </a></li>
+                  <li>
+                     <!--<a href="#"><span class="glyphicon glyphicon-log-in"></span> Log in</a>-->
+                     <?php
+                     if(isset($userID))
+                     {
+                        $user_url = array('profile', $userID);
+                        echo "<a href=\"". site_url($user_url) ."\"><span class=\"glyphicon glyphicon-log-in\"></span> ". $username
+                            ." <span title=\"You have ". $notes_left ." notes left to put to the wall!\" class=\"badge\">". $notes_left ."</span></a>";
+                     }
+                     ?>
+                  </li>
                </ul>
             </div>
          </div>

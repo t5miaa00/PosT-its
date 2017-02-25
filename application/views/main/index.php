@@ -7,18 +7,10 @@
       </a></p>
    </div>
 </div>
-<?php
-if (isset($trying))
-{
-   echo '<div class="container">';
-   if ($trying)
-   {
-      echo '<div class="alert alert-success" role="alert"><b>SUCCESS! </b>User added succesfully!</div>';
-   }
-   else
-   {
-      echo '<div class="alert alert-danger" role="alert"><b>OOPS! </b>Something went wrong while adding the user! :(</div>';
-   }
-   echo '</div>';
-}
-?>
+<div class="container alert alert-info">
+   <p>DEBUG! <br> session ID: <?php echo session_id(); ?></p>
+   <p>user ID: <?php echo $userID; ?></p>
+   <p>username: <?php echo $username; ?></p>
+   <p>notes left: <?php echo $notes_left; ?></p>
+   <p>message draft: <?php echo $message_draft; ?></p>
+</div>
