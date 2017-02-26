@@ -1,6 +1,6 @@
          <footer>
             <div class="container">
-               &copy; Vittusaatana productions 2017.
+               <p>This site is made by Aatu (t5mia00).</p>
             </div>
          </footer>
 

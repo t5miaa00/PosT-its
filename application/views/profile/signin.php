@@ -31,10 +31,10 @@
             <h2 class="form-signin-heading">Sign in to PosT-its!</h2>
 
             <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" id="inputUsername" class="form-control"
+            <input type="text" id="inputUsername" class="form-control top-input"
                    name="username" placeholder="Username" maxlength="25" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control"
+            <input type="password" id="inputPassword" class="form-control bottom-input"
                    name="password" placeholder="Password" pattern=".{10,32}"
                    title="Password must be between 10 and 32 characters." required>
 
@@ -42,7 +42,16 @@
 
             <input class="btn btn-lg btn-primary btn-block" name="signInBtn" type="submit" value="Sign in">
             <?php
-            if (isset($trying))
+            $alert = $this->session->flashdata('alert');
+            if (isset($alert))
+            {
+               foreach ($alert as $type => $message)
+               {
+                  echo '<div class="alert alert-'. $type .'" role="alert">'. $message
+                  .'<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button></div>';
+               }
+            }
+            /*if (isset($trying))
             {
                echo '<br>';
                if ($trying)
@@ -64,9 +73,9 @@
             if (isset($logged_out) && $logged_out)
             {
                echo '<br>'
-                   .'<div class="alert alert-success role="alert">SUCCESS! Logged out succesfully!</div>'
+                   .'<div class="alert alert-success role="alert"><b>SUCCESS!</b> Logged out succesfully!</div>'
                    .'<br>';
-            }
+            }*/
             ?>
             <p>Don't have an account? <a href="<?php echo site_url('profile/register');?>">Register here!</a></p>
          </form>

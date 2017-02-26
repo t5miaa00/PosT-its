@@ -1,9 +1,18 @@
 <?php
 if (isset($userID))
 {
+   $alert = $this->session->flashdata('alert');
    echo '<div class="container-flow no-margin"><div class="container padded-container">'
-   .'<a href="#" class="btn btn-primary">Post a note</a>'
-   .'</div></div>';
+   .'<div class="col-sm-4 col-md-4"><a href="'. site_url('profile') .'" class="btn btn-primary">Post a note</a></div>';
+   if (isset($alert))
+   {
+      foreach ($alert as $type => $message)
+      {
+         echo '<div class="col-md-8 col-sm-8 alert alert-'. $type .'" role="alert">'. $message
+         .'<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button></div>';
+      }
+   }
+   echo '</div></div>';
 }
 ?>
 <div class="container-flow no-bg">
@@ -11,22 +20,23 @@ if (isset($userID))
 
       <div class="corkwall">
 
+         <!--
          <div class="post-grouping">
             <div class="post-note" style="top: 120px; left: 233px;"
                data-toggle="modal" data-target="#postID-test">
                <p>Ferst post pitses! This post will be a long one, you'll see! This post will go over everything you see!
                   This post will have more than the basic amount of stuff written!</p>
                <div class="post-note-footer">
-                  <!-- This post is to show the poster name~ -->
+                  <!-- This post is to show the poster name~ - ->
                   <p>Aatu</p>
                </div>
             </div>
 
-            <!-- MODAL START -->
+            <!-- MODAL START - ->
             <!-- This is only a template for a modal in which all the posts will have
             own modal to show the post more accurately. The site will load slowly
             when there'll be buttloads of posts. Going to rectify this sooner or
-            later... probably...-->
+            later... probably...- ->
             <div class="modal fade" id="postID-test" tabindex="-1" role="dialog">
                <div class="modal-dialog" role="document">
                   <div class="modal-content modal-postit">
@@ -45,7 +55,7 @@ if (isset($userID))
                   </div>
                </div>
             </div>
-            <!-- MODAL END -->
+            <!-- MODAL END - ->
          </div>
          <!-- POST END -->
          <?php
@@ -66,7 +76,7 @@ if (isset($userID))
       <div class="modal-dialog" role="document">
          <div class="modal-content modal-postit" style="background:#'. $note->colour .'">
             <div class="modal-header">';
-         if ($userID == $note->userID)
+         if (isset($userID) && $userID == $note->userID)
          {
             echo '<a href="'. site_url("wall/removepost/$note->noteID") .'" class="delete-post"><span class="glyphicon glyphicon-trash"></span>Delete post?</a>';
          }
@@ -78,7 +88,7 @@ if (isset($userID))
             '. $note->message .'
             </div>
             <div class="modal-footer">
-               <p>'. $note->username .'</p>
+               <sub>Date of post: '. $note->post_date .'</sub><p>'. $note->username .'</p>
             </div>
          </div>
       </div>

@@ -5,8 +5,8 @@ CREATE USER 'post_its'@'localhost'
 -- User table of the database.
 CREATE TABLE users
 (
-   userID INTEGER AUTO_INCREMENT,
-   username VARCHAR(25),
+   userID INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
+   username VARCHAR(25) UNIQUE,
    password CHAR(64), -- Passwords will be saved as SHA256 hashes.
    note_amount SMALLINT, -- To restrict users from posting too many notes.
    message_draft VARCHAR(255), -- Message will be 255 characters long max.
@@ -17,8 +17,8 @@ ENGINE = InnoDB;
 -- Notes table of the database.
 CREATE TABLE notes
 (
-   noteID INTEGER AUTO_INCREMENT,
-   userID INTEGER,
+   noteID INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
+   userID INTEGER NOT NULL,
    message VARCHAR(255),
    colour CHAR(6), -- Colour in hex => 00ffaa
    position_x FLOAT(6,2), -- 6 digits, 2 decimals => 1234,56

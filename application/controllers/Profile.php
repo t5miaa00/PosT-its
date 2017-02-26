@@ -7,6 +7,7 @@ class Profile extends CI_Controller
    {
       parent::__construct();
       $this->load->model('Profile_model');
+      $this->load->model('Wall_model');
    }
 
    public function index()
@@ -16,7 +17,8 @@ class Profile extends CI_Controller
          redirect('profile/signin');
          return false;
       }
-      $data = $this->Profile_model->getSessionData()
+      $data = $this->Profile_model->getSessionData();
+      $data['user_posts'] = $this->Wall_model->getPosts($data['userID']);
       $data['page'] = 'profile/main';
 
       $this->load->view('menu/content', $data);
@@ -55,10 +57,10 @@ class Profile extends CI_Controller
             }
             redirect('main');
          }
-         else
+         else # if the sign in fails
          {
-            $data['login_fail'] = true;
-            $this->load->view('profile/signin', $data);
+            $this->session->set_flashdata('alert', array('danger' => 'Username/Password was wrong.'));
+            $this->load->view('profile/signin');
          }
       }
       else
@@ -75,14 +77,24 @@ class Profile extends CI_Controller
       $btn = $this->input->post('registerBtn');
       if (isset($btn))
       {
-         $user_data = array(
-            "username" => $this->input->post('username'),
-            "password" => hash("sha256", $this->input->post('password')),
-            "note_amount"=>0,
-            "message_draft"=>""
-         );
-         $data['trying'] = $this->Profile_model->addUser($user_data);
-         $this->load->view('profile/signin', $data);
+         if (hash("sha256", $this->input->post('password'))
+             == hash("sha256", $this->input->post('redoPassword')))
+         {
+            $user_data = array(
+               "username" => $this->input->post('username'),
+               "password" => hash("sha256", $this->input->post('password')),
+               "note_amount"=>0,
+               "message_draft"=>""
+            );
+            $this->Profile_model->addUser($user_data);
+            $this->session->set_flashdata('alert', array('success' => 'User added succesfully you can now sign in!'));
+            redirect('profile/signin');
+         }
+         else
+         {
+            $this->session->set_flashdata('alert', array('danger' => 'Please check your password!'));
+            $this->load->view('profile/register');
+         }
       }
       else
       {
@@ -93,7 +105,22 @@ class Profile extends CI_Controller
    {
       $this->session->unset_userdata('logged_in');
       session_destroy();
-      $data['logged_out'] = true;
-      $this->load->view('profile/signin', $data);
+
+      $this->session->set_flashdata('alert', array('success' => 'You have been succesfully logged out!'));
+      redirect('profile/signin');
+   }
+   public function removeAccount($userID)
+   {
+      if (! $this->Profile_model->checkLogin())
+      {
+         $this->session->set_flashdata('alert', array('info' => 'Please sign in first to do this.'));
+         redirect('profile/signin');
+      }
+      else
+      {
+         $this->Profile_model->removeAccount($userID);
+         $this->session->set_flashdata('alert', array('info' => 'Account removed succesfully!'));
+         $this->logout();
+      }
    }
 }

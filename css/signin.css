@@ -17,12 +17,20 @@ body
    height: auto;
    font-size: 18px;
 }
-#inputUsername
+.alert
+{
+   margin-top: 10px;
+}
+.top-input, .middle-input, .bottom-input
+{
+   margin-bottom: -1px;
+   border-radius: 0;
+}
+.top-input
 {
    border-radius: 5px 5px 0 0;
-   margin-bottom: -1px;
 }
-#inputPassword
+.bottom-input
 {
    border-radius: 0 0 5px 5px;
 }

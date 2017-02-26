@@ -54,7 +54,7 @@
                      if(isset($userID))
                      {
                         echo '<a href="'. site_url('profile') .'">'
-                            .'<span class="glyphicon glyphicon-log-in"></span> '. $username .' <span title="You have '. $notes_left .' notes left to put to the wall!" class="badge">'. $notes_left .'</span>'
+                            .'<span class="glyphicon glyphicon-user"></span> '. $username .' <span title="You have '. $notes_left .' notes left to put to the wall!" class="badge">'. $notes_left .'</span>'
                             .'</a>'
                             .'</li><li>'
                             .'<a href="'. site_url('profile/logout') .'">Log out'

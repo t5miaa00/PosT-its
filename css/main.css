@@ -4,11 +4,16 @@ body
    background: url('../img/background.jpg') no-repeat fixed center top;
    width: 100%;
 }
-.jumbotron, footer, .well,
+.jumbotron, footer, .well:not(.no-bg),
 body > .container:not(.no-bg),
 body > .container-flow:not(.no-bg)
 {
    background: url('../img/background-blur.jpg') no-repeat fixed center top;
+}
+body > .container:not(.no-bg),
+body > .container-flow:not(.no-bg)
+{
+   padding-bottom: 10px;
 }
 footer
 {
@@ -54,11 +59,11 @@ button.navbar-toggle
 {
    font-size: 16px;
 }
-.modal-header
+.modal-postit .modal-header
 {
    border-bottom: 1px dashed #555;
 }
-.modal-footer
+.modal-postit .modal-footer
 {
    border-top: 1px dashed #555;
 }
@@ -69,6 +74,11 @@ button.navbar-toggle
    border-radius: 5px;
    margin-bottom: -25px;
 }
+.centered
+{
+   text-align: center;
+   margin: auto;
+}
 .corkwall
 {
    margin: 8px;
@@ -76,7 +86,7 @@ button.navbar-toggle
    border: 4px solid #888;
    box-shadow: 0 0 10px 0 black inset;
    border-radius: 10px;
-   height: 720px;
+   height: 780px;
    width: 1420px;
    position: relative;
    background: #cca;
@@ -130,4 +140,31 @@ body > .container-flow:not(.no-margin)
 .padded-container
 {
    padding: 16px;
+}
+.input-group
+{
+   margin-bottom: 10px;
+}
+.colour-radio-cont
+{
+   height: 55px;
+}
+.colour-radio
+{
+   padding: 15px;
+   text-align: center;
+   background: #555;
+}
+.colour-radio:hover
+{
+   box-shadow: 0 0 5px 0 cyan;
+   z-index: 1;
+}
+.colour-radio-cont .colour-radio:first-child
+{
+   border-radius: 5px 0 0 5px;
+}
+.colour-radio-cont .colour-radio:last-child
+{
+   border-radius: 0 5px 5px 0;
 }

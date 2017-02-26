@@ -35,16 +35,31 @@
             <h2 class="form-signin-heading">Register to PosT-its!</h2>
 
             <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" id="inputUsername" class="form-control"
+            <input type="text" id="inputUsername" class="form-control top-input"
                    name="username" placeholder="Username" maxlength="25" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control"
+            <input type="password" id="inputPassword" class="form-control middle-input"
                    name="password" placeholder="Password" pattern=".{10,32}"
+                   title="Password must be between 10 and 32 characters." required>
+            <label for="redoPassword" class="sr-only">Re type password</label>
+            <input type="password" id="redoPassword" class="form-control bottom-input"
+                   name="redoPassword" placeholder="Re type password" pattern=".{10,32}"
                    title="Password must be between 10 and 32 characters." required>
 
             <br>
 
             <input class="btn btn-lg btn-primary btn-block" name="registerBtn" type="submit" value="Register">
+            <?php
+            $alert = $this->session->flashdata('alert');
+            if (isset($alert))
+            {
+               foreach ($alert as $type => $message)
+               {
+                  echo '<div class="alert alert-'. $type .'" role="alert">'. $message
+                  .'<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button></div>';
+               }
+            }
+            ?>
          </form>
       </div>
 
