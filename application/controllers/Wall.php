@@ -17,11 +17,15 @@ class Wall extends CI_Controller
          $data['username'] = $session_data['username'];
          $data['notes_left'] = $session_data['notes_left'];
          $data['userID'] = $session_data['userID'];
-
       }
       $data['user_posts'] = $this->Profile_model->getAllPosts();
 
       $this->load->view('menu/content', $data);
+   }
+   public function removePost($noteID)
+   {
+      $this->Profile_model->removePost($noteID);
+      $this->index();
    }
 }
 ?>

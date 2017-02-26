@@ -33,8 +33,10 @@ ENGINE = InnoDB;
 
 -- Adding some testing posts to the table.
 INSERT INTO notes (userID, message, colour, position_x, position_y, post_date)
-VALUES ("1", "This is a test message.", "5a024f", "111.11", "442.53", NOW());
+VALUES ("1", "This is a test message.", "EBFF68", "111.11", "442.53", NOW());
 INSERT INTO notes (userID, message, colour, position_x, position_y, post_date)
-VALUES ("1", "This is also a testing message", "392da1", "1002.20", "2.53", NOW());
+VALUES ("1", "This is also a testing message", "80FFFA", "1202.20", "10.53", NOW());
 INSERT INTO notes (userID, message, colour, position_x, position_y, post_date)
-VALUES ("1", "This message will be designated as a testing one.", "aabbcc", "1.3", "603.53", NOW());
+VALUES ("1", "This message will be designated as a testing one.", "75E88D", "1.3", "555.53", NOW());
+INSERT INTO notes (userID, message, colour, position_x, position_y, post_date)
+VALUES ("2", "This is a message from the testuser1!", "D398E8", "222", "331", NOW());

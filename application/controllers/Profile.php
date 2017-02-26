@@ -16,15 +16,8 @@ class Profile extends CI_Controller
          redirect('profile/signin');
          return false;
       }
+      $data = $this->Profile_model->getSessionData()
       $data['page'] = 'profile/main';
-
-      $session_data = $this->session->userdata('logged_in');
-      $data['username'] = $session_data['username'];
-      $data['notes_left'] = $session_data['notes_left'];
-      #debug data...
-      $data['userID'] = $session_data['userID'];
-      $data['message_draft'] = $session_data['message_draft'];
-      $data['user_posts'] = $this->Profile_model->getPosts($data['userID']);
 
       $this->load->view('menu/content', $data);
    }
@@ -55,6 +48,7 @@ class Profile extends CI_Controller
                   'userID' => $row->userID,
                   'username' => $row->username,
                   'notes_left' => (10 - $row->note_amount),
+                  'note_amount' => $row->note_amount,
                   'message_draft' => $row->message_draft
                );
                $this->session->set_userdata('logged_in', $session_data);
@@ -100,22 +94,6 @@ class Profile extends CI_Controller
       $this->session->unset_userdata('logged_in');
       session_destroy();
       $data['logged_out'] = true;
-      $this->load->view('profile/signin', $data);
-   }
-   public function registerUser()
-   {
-      $this->load->model('Profile_model');
-      $btn = $this->input->post('registerBtn');
-      if (isset($btn))
-      {
-         $user_data = array(
-            "username" => $this->input->post('username'),
-            "password" => hash("sha256", $this->input->post('password')),
-            "note_amount"=>0,
-            "message_draft"=>""
-         );
-         $data['trying'] = $this->Profile_model->addUser($user_data);
-      }
       $this->load->view('profile/signin', $data);
    }
 }

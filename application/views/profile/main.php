@@ -1,4 +1,4 @@
-<div class="well well-lg container">
+<div class="container">
    <h1>Hey, <?php echo $username; ?>!</h1><hr>
    <div class="col-md-6 col-sm-6">
       <h3>Your posts:</h3>
@@ -9,7 +9,7 @@
           .'</tr>';
       foreach ($user_posts as $row)
       {
-         echo '<tr style="border:3px solid #'. $row->colour .'">'
+         echo '<tr style="background:#'. $row->colour .';">'
              .'<td>'. $row->noteID .'</td><td>'. $row->message .'</td>'
              .'<td><a class="btn btn-danger" href="'. site_url("wall/removepost/$row->noteID") .'">&times;</a></td>'
              .'</tr>';
