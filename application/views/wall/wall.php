@@ -1,3 +1,9 @@
+<div class="jumbotron">
+   <div class="container">
+      <h1>The wall</h1>
+      <p>All the posts are here! You can also check the posts more closely by clicking on them!</p>
+   </div>
+</div>
 <?php
 if (isset($userID))
 {
@@ -20,44 +26,6 @@ if (isset($userID))
 
       <div class="corkwall">
 
-         <!--
-         <div class="post-grouping">
-            <div class="post-note" style="top: 120px; left: 233px;"
-               data-toggle="modal" data-target="#postID-test">
-               <p>Ferst post pitses! This post will be a long one, you'll see! This post will go over everything you see!
-                  This post will have more than the basic amount of stuff written!</p>
-               <div class="post-note-footer">
-                  <!-- This post is to show the poster name~ - ->
-                  <p>Aatu</p>
-               </div>
-            </div>
-
-            <!-- MODAL START - ->
-            <!-- This is only a template for a modal in which all the posts will have
-            own modal to show the post more accurately. The site will load slowly
-            when there'll be buttloads of posts. Going to rectify this sooner or
-            later... probably...- ->
-            <div class="modal fade" id="postID-test" tabindex="-1" role="dialog">
-               <div class="modal-dialog" role="document">
-                  <div class="modal-content modal-postit">
-                     <div class="modal-header">
-                        <a href="#" class="delete-post"><span class="glyphicon glyphicon-trash"></span>Delete post?</a>
-                        <button type="button" class="close" data-dismiss="modal">
-                           &times;
-                        </button>
-                     </div>
-                     <div class="modal-body">
-                        <p>Ferst post pitses! This post will be a long one, you'll see! This post will go over everything you see!</p>
-                     </div>
-                     <div class="modal-footer">
-                        <p>Aatu</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- MODAL END - ->
-         </div>
-         <!-- POST END -->
          <?php
          # Beware! This looks ugly as heck! But it works, so I won't be changing anything in this!
          foreach ($user_posts as $note)

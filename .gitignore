@@ -27,3 +27,11 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
+
+# Vim files
+*.swp
+*~
+
+# Config files...
+application/config/config.php
+application/config/database.php

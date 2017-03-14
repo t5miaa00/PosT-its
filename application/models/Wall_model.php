@@ -59,7 +59,7 @@ Class Wall_model extends CI_Model
          $session_data['notes_left'] = (10 - $session_data['note_amount']);
          $this->session->set_userdata('logged_in', $session_data);
          $this->db->where('userID', $userID);
-         $this->db->update('users', array('note_amount' => $new_note_count));
+         $this->db->update('users', array('note_amount' => $session_data['note_amount']));
          return true;
       }
       else

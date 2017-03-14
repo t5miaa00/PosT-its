@@ -53,7 +53,7 @@ class Wall extends CI_Controller
 
          $note_data = array(
             'userID' => $session_data['userID'],
-            'message' => $this->input->post('message'),
+            'message' => htmlspecialchars($this->input->post('message')),
             'position_x' => $this->input->post('position_x'),
             'position_y' => $this->input->post('position_y'),
             'colour' => $this->input->post('colour'),
